@@ -23,6 +23,19 @@ set_option() {
     echo "${1}=${2}" >>$CONFIG_FILE # add option
 }
 
+# set_password() {
+#     read -rs -p "Please enter password: " PASSWORD1
+#     echo -ne "\n"
+#     read -rs -p "Please re-enter password: " PASSWORD2
+#     echo -ne "\n"
+#     if [[ "$PASSWORD1" == "$PASSWORD2" ]]; then
+#         set_option "$1" "$PASSWORD1"
+#     else
+#         echo -ne "ERROR! Passwords do not match. \n"
+#         set_password
+#     fi
+# }
+
 set_password() {
     read -rs -p "Please enter password: " PASSWORD1
     echo -ne "\n"
@@ -35,6 +48,7 @@ set_password() {
         set_password
     fi
 }
+
 
 root_check() {
     if [[ "$(id -u)" != "0" ]]; then
